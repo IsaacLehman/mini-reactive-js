@@ -38,7 +38,6 @@ class Component {
 			// Create the component (Only create if it doesn't exist)
 			this.element = this.element || document.createElement('div');
 			this.element.setAttribute('id', this.uuid);
-			console.log(this.element);
 			// Set the innerHTML
 			this.element.innerHTML = html;
 
@@ -51,7 +50,6 @@ class Component {
 
 			// Add event listeners (Handler is a function that returns a new state)
 			for (let event of this.events) {
-				console.log(event, this.element)
 				this.element.addEventListener(event.name, (e) => {
 					this.update(event.handler(e, this.state));
 				});
